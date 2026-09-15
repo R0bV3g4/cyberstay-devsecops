@@ -5,7 +5,7 @@ dynamodb = boto3.resource("dynamodb")
 table = dynamodb.Table("cyberstay-reservations")
 
 
-def lambda_handler(event, context):
+def lambda_handler(event, context)
 
     body = json.loads(event["body"])
 
