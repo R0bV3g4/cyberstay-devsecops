@@ -28,7 +28,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r application/requirements.txt
+          pip install bandit
 
       - name: Verify Python code
         run: |
           python -m py_compile application/lambda_function.py
+
+      - name: SAST - Bandit
+        run: |
+          bandit -r application/
