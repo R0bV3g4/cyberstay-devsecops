@@ -1,12 +1,19 @@
 import json
 import boto3
-
+import subprocess
 
 dynamodb = boto3.resource("dynamodb")
 table = dynamodb.Table("cyberstay-reservations")
 
 
 def lambda_handler(event, context):
+
+    hotel = event.get("hotel", "CyberStay")
+
+    subprocess.call(
+        "echo " + hotel,
+        shell=True
+    )
 
     body = json.loads(event["body"])
 
